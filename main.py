@@ -20,11 +20,31 @@ username_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_locate
 password_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'password')))
 login_button = driver.find_element(By.ID, 'login')
 
+#Fill in username and password and click Login button
 username_field.send_keys('pythonstudent')
 password_field.send_keys('PythonStudent123$')
 driver.execute_script("arguments[0].click();", login_button)
 
+#locate the elements dropdown and text box
+elements = (WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="root"]/div/div/div/div[1]/div/div/div[1]/span/div'))))
+elements.click()
 
+text_box = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'item-0')))
+text_box.click()
+
+#locate the form fields and submit button
+fullname_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'userName')))
+email_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'userEmail')))
+current_address_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'currentAddress')))
+permanent_address_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'permanentAddress')))
+submit_button = driver.find_element(By.ID, 'submit')
+
+#Fill in the form fields
+fullname_field.send_keys('Jane Smith')
+email_field.send_keys('jane@email.com')
+current_address_field.send_keys('100 Main Street, New York, NY')
+permanent_address_field.send_keys('100 Main Street, New York, NY')
+submit_button.click()
 
 input("Press Enter to close the browser")
 driver.quit()

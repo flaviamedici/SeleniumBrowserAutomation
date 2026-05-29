@@ -42,7 +42,7 @@ fullname_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_locate
 email_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'userEmail')))
 current_address_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'currentAddress')))
 permanent_address_field = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'permanentAddress')))
-submit_button = driver.find_element(By.XPATH, '//*[@id="submit"]')
+submit_button = driver.find_element(By.ID, 'submit')
 
 #Fill in the form fields
 fullname_field.send_keys('Jane Smith')
